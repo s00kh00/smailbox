@@ -52,7 +52,7 @@ if (cluster.isMaster) {
         var item = {
             'email': {'S': req.body.email},
             'name': {'S': req.body.name},
-            'preview': {'S': req.body.previewAccess},
+      //      'preview': {'S': req.body.previewAccess},
             'OrderNumber': {'S': req.body.orderNumber},
             'theme': {'S': req.body.theme}
         };
@@ -74,7 +74,7 @@ if (cluster.isMaster) {
             } else {
                 sns.publish({
                     'Message': 'Name: ' + req.body.name + "\r\nEmail: " + req.body.email
-                                        + "\r\nPreviewAccess: " + req.body.previewAccess
+                                    //    + "\r\nPreviewAccess: " + req.body.previewAccess
                                         + "\r\nTheme: " + req.body.theme,
                     'Subject': 'New user sign up!!!',
                     'TopicArn': snsTopic
